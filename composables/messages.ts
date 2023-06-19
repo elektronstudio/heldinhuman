@@ -5,7 +5,7 @@ export const useMessages = () => {
   const ws = ref(null);
 
   onMounted(() => {
-    const websocket = new ReconnectingWebSocket("wss://data2.elektron.art");
+    const websocket = new ReconnectingWebSocket("wss://data.elektron.art");
     websocket.addEventListener("message", ({ data }) => {
       const message = JSON.parse(data);
       messages.value.push(message as never);
