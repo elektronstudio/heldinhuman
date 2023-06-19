@@ -6,6 +6,8 @@ const sample =
 const scrollable = ref<HTMLElement | null>(null);
 const textarea = ref<HTMLTextAreaElement | HTMLInputElement | null>(null);
 
+const channel = "amfr";
+
 const {
   chatMessages,
   newChatMessage,
@@ -13,7 +15,7 @@ const {
   newChatMessagesCount,
   scrollToBottom,
   focus,
-} = useChat("test", scrollable, textarea);
+} = useChat(channel, scrollable, textarea);
 
 //const { data: chatMessagesHistory } = await useChatHistory("test");
 
