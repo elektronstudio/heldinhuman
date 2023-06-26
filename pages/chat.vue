@@ -41,7 +41,8 @@ const messages = computed(() => [
       :class="[newChatMessagesCount ? 'scroll-smooth' : '']"
     >
       <Card v-for="message in messages" class="whitespace-pre-wrap font-mono">
-        {{ message.value }}
+        <div class="text-sm text-gray-400 mb-1">{{ message.username }}</div>
+        <div>{{ message.value }}</div>
       </Card>
     </div>
     <Stack class="justify-end">
