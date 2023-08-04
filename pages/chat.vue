@@ -17,7 +17,7 @@ const {
   focus,
 } = useChat(channel, scrollable, textarea);
 
-//const { data: chatMessagesHistory } = await useChatHistory("test");
+const { data: chatMessagesHistory } = await useChatHistory(channel);
 
 const paste = () => {
   newChatMessage.value = sample;
@@ -28,7 +28,7 @@ const scrollToTop = () =>
   scrollable.value ? (scrollable.value.scrollTop = 0) : {};
 
 const messages = computed(() => [
-  //...chatMessagesHistory.value,
+  ...chatMessagesHistory.value,
   ...chatMessages.value,
 ]);
 </script>

@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/strapi": "^1.9.3",
     "@nuxtjs/tailwindcss": "^6.7.2",
     "@types/node": "^18",
     "@vueuse/nuxt": "^10.2.0",
@@ -17,6 +18,7 @@
   },
   "dependencies": {
     "date-fns": "^2.30.0",
+    "lodash-es": "^4.17.21",
     "reconnecting-websocket": "^4.4.0"
   }
 }
