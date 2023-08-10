@@ -19,11 +19,6 @@ const {
 
 const { data: chatMessagesHistory } = await useChatHistory(channel);
 
-const paste = () => {
-  newChatMessage.value = sample;
-  focus.value = true;
-};
-
 const scrollToTop = () =>
   scrollable.value ? (scrollable.value.scrollTop = 0) : {};
 
@@ -31,6 +26,15 @@ const messages = computed(() => [
   ...chatMessagesHistory.value,
   ...chatMessages.value,
 ]);
+
+onMounted(() => {
+  scrollToBottom();
+});
+
+const send = () => {
+  scrollToBottom();
+  sendChatMessage();
+};
 </script>
 
 <template>
@@ -59,7 +63,7 @@ const messages = computed(() => [
         <Button class="outline-hidden" @click="scrollToTop">
           Scroll to top
         </Button> -->
-        <Button primary @click="sendChatMessage">Send message</Button>
+        <Button primary @click="send">Send message</Button>
       </div>
     </Stack>
     <!-- <Button small class="mt-4 flex" @click="scrollToBottom">
