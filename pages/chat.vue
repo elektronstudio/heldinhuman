@@ -41,7 +41,7 @@ const send = () => {
   <Stack class="p-4 md:p-6">
     <div
       ref="scrollable"
-      class="flex flex-col gap-6 overflow-y-auto max-h-[500px]"
+      class="flex flex-col gap-6 overflow-y-auto max-h-[600px]"
       :class="[newChatMessagesCount ? 'scroll-smooth' : '']"
     >
       <Card v-for="message in messages" class="whitespace-pre-wrap font-mono">
