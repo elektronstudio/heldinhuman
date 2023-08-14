@@ -8,7 +8,6 @@ const onDownloadCsv = () => {
 
 <template>
   <Stack class="p-4 md:p-6 bg-orange-300 h-screen">
-    <Body class="bg-orange-300" />
     <NuxtLink to="/"><LeftArrow /></NuxtLink>
     <h1 class="text-4xl font-bold uppercase flex items-center gap-4">
       CHAT HISTORY
