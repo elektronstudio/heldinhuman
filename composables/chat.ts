@@ -46,9 +46,11 @@ export function useChat(
   };
 
   const scrollToBottom = async () =>
-    await nextTick(
-      () => (scrollable.value.scrollTop = scrollable.value.scrollHeight)
-    );
+    await nextTick(() => {
+      if (scrollable.value) {
+        scrollable.value.scrollTop = scrollable.value.scrollHeight;
+      }
+    });
 
   // When user is scrolled away from the bottom
   // by SCROLL_AWAY_OFFSET

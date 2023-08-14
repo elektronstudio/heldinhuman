@@ -44,18 +44,18 @@ const send = () => {
       class="flex flex-col gap-6 overflow-y-auto max-h-[600px]"
       :class="[newChatMessagesCount ? 'scroll-smooth' : '']"
     >
-      <Card v-for="message in messages" class="whitespace-pre-wrap font-mono">
-        <div class="text-sm text-gray-400 mb-1">{{ message.username }}</div>
-        <div>{{ message.value }}</div>
+      <Card v-for="message in messages.slice(-100)">
+        <div class="text-sm text-black/50 mb-1">{{ message.username }}</div>
+        <div class="break-all">{{ message.value }}</div>
       </Card>
     </div>
     <Stack class="justify-end">
       <textarea
-        class="max-h-64 md:whitespace-pre-wrap border-black text-black border px-2 py-1 font-mono focus:border-green-400 focus:ring-0"
+        class="max-h-64 rounded-xl text-black px-3 py-2 focus:shadow-2xl focus:ring-0 border-orange-400 border-4 outline-none"
         ref="textarea"
         v-model="newChatMessage"
       />
-      <p class="text-xs tracking-wide text-gray-500">
+      <p class="text-xs tracking-wide text-black/30">
         Shift + Enter for newline, Enter to submit
       </p>
       <div class="flex gap-4">

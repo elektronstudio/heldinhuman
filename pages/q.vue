@@ -8,22 +8,20 @@ const channel = "amfr";
 
 const { chatMessages } = useChat(channel, scrollable, textarea);
 
-const message = computed(
-  () =>
-    chatMessages.value
-      .filter((m) => m.value.startsWith("/q"))
-      .map((m) => {
-        m.value = m.value.replace("/q", "").trim();
-        return m;
-      })
-      .slice(-1)[0]
-);
+const message = ref("");
+
+watch(chatMessages, () => {
+  const lastMessage = chatMessages.value.slice(-1)[0];
+  if (lastMessage.value.startsWith("/q")) {
+    message.value = lastMessage.value.replace("/q", "").trim();
+  }
+});
 </script>
 
 <template>
   <Stack class="p-4 md:p-6">
     <div class="text-5xl font-bold text-center">
-      {{ message?.value }}
+      {{ message }}
     </div>
   </Stack>
 </template>
