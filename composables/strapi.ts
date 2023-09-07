@@ -3,6 +3,7 @@ import { Strapi4RequestParams } from "@nuxtjs/strapi/dist/runtime/types";
 
 export const useChatHistory = (channel: string) =>
   useMessagesHistory({
+    pagination: { limit: -1, start: 0 },
     filters: { type: { $eq: "CHAT" }, channel: { $eq: channel } },
   });
 
